@@ -1,2 +1,2 @@
-# Comanda-Eletr-nica
+# Comanda-Eletronica
 Exercício Programa: Comanda Eletronica
