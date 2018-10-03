@@ -66,6 +66,10 @@ while running:
     if menu==4:
         total=0
         for item in comanda:
-            print("{0}:{1}".format(item,comanda[item]))
             total += cardapio[item] * comanda[item]
-        print("Preço:{0}".format(total))
+            unidade= cardapio[item] * comanda[item]
+            print("{0}:{1:.2f}R$".format(item,cardapio[item]))
+            print("{0:.2f}R$".format(unidade))
+        print("Valor total:{0:.2f}R$".format(total))
+        print("Valor total com serviços (10%):{0:.2f}R$".format(total*1.1))
+        
