@@ -1,26 +1,24 @@
 import json
 
 running = True
-comanda = {}
 
+comanda = {}
+with open('cardapio.json') as json_data:
+    cardapio = json.load(json_data)
 while running:
-    with open("cardapio.json",'r') as f:
-        content=f.read()
-        cardapio=json.loads(content)
     menu = int(input("Comanda Eletrônica\n0. Sair\n1. Imprimir cardápio\n2. Adicionar item\n3. Remover item\n4. Imprimir comanda\n-->"))
     if menu ==0:
         print("Até mais")
         with open('cardapio.json','w') as f:
-            content=json.dumps(cardapio)
-            f.write(content)
+            f.write(json.dumps(cardapio))
         running = False
     if menu ==1:
-        if cardapio == '{}':
+        if cardapio == {}:
             print("Não há nada aqui")
         else:
             print("O cardápio possui os seguintes itens:")
-            for a,b in cardapio.items():
-                print("- {0}({1:.2f}R$)".format(a,b))
+        for a,b in cardapio.items():
+            print("- {0}({1:.2f}R$)".format(a,b))
     
     if menu ==2:
         escolha= input("Gostaria de adicionar ao cardápio ou à comanda? " )
@@ -52,10 +50,9 @@ while running:
                     if (comanda[pedido]-quantidade)>=0:
                         comanda[pedido]=comanda[pedido]-quantidade
                         print ("Quantidade atual de {0} : {1}".format(pedido,comanda[pedido]))
-                    if comanda[pedido]-quantidade== 0:
+                    if comanda[pedido]== 0:
                         del comanda[pedido]
-                    #if comanda[pedido]-quantidade<0:
-                    #   print ("Máxima a ser removido:{0}\nNão é possível remover mais que a quantidade presente na comanda".format(comanda[pedido]))    
+                        
             else:
                 print("Este item não está na comanda")
         if escolha=='cardapio' or escolha=='cardápio':
