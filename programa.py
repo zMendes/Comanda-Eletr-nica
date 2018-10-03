@@ -1,7 +1,6 @@
 import json
 
 running = True
-
 comanda = {}
 with open('cardapio.json') as json_data:
     cardapio = json.load(json_data)
@@ -34,7 +33,10 @@ while running:
             pedido = input("Faça sua escolha: ")
             if pedido in cardapio:
                 quantidade= int(input("Quantidade: "))
-                comanda[pedido] = quantidade
+                if pedido in comanda:
+                    comanda[pedido] +=quantidade
+                else:
+                    comanda[pedido] = quantidade
                 print("Quantidade atual de {0}: {1}".format(pedido,comanda[pedido]))
             else:
                 print("Não há este produto no cardápio.")
