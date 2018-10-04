@@ -53,7 +53,7 @@ while running:
         if escolha=='comanda':
             comanda=input("De qual comanda deseja remover?")
             pedido=input("Pedido a ser removido:")
-            if pedido in comanda:
+            if pedido in comandas[comanda]:
                 quantidade=int(input("Quantidade a remover: "))
                 if quantidade<0:
                     print("Não é possível remover quantidade não positiva")
@@ -70,7 +70,7 @@ while running:
             pedido=input('Qual item deseja remover do cardápio?')
             if pedido in cardapio:
                 del cardapio[pedido]
-            if pedido in comanda:
+            if pedido in comandas[comanda]:
                 del comandas[comanda][pedido]
             else:
                 print("Item não cadastrado")
