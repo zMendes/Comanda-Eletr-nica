@@ -66,14 +66,17 @@ while running:
             pedido=input('Qual item deseja remover do cardápio?')
             if pedido in cardapio:
                 del cardapio[pedido]
+            if pedido in comanda:
+                del comanda[pedido]
             else:
                 print("Item não cadastrado")
     if menu=='4':
+        comanda = input("Qual comanda deseja imprimir a conta? ")
         total=0
-        for item in comanda:
+        for item in comandas[comanda]:
             total += cardapio[item] * comandas[comanda][item]
             unidade= cardapio[item] * comandas[comanda][item]
             print("{0}:{1:.2f}R$".format(item,cardapio[item]))
-            print("{0:.2f}R$".format(unidade))
+            print("{0}:{1:.2f}R$".format(comandas[comanda][item],unidade))
         print("Valor total:{0:.2f}R$".format(total))
         print("Valor total com serviços (10%):{0:.2f}R$".format(total*1.1))
