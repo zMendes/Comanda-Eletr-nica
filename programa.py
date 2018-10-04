@@ -62,6 +62,8 @@ while running:
                         print ("Quantidade atual de {0} : {1}".format(pedido,comandas[comanda][pedido]))
                     if comandas[comanda][pedido]== 0:
                         del comandas[comanda][pedido]
+                    else:
+                        print("ERRO. Não podem ser removidos mais itens do que haviam antes.")
                         
             else:
                 print("Este item não está na comanda")
