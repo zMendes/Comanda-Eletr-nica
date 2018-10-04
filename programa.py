@@ -5,7 +5,7 @@ comanda = {}
 with open('cardapio.json') as json_data:
     cardapio = json.load(json_data)
 while running:
-    menu = int(input("Comanda Eletrônica\n0. Sair\n1. Imprimir cardápio\n2. Adicionar item\n3. Remover item\n4. Imprimir comanda\n-->"))
+    menu = (input("Comanda Eletrônica\n0. Sair\n1. Imprimir cardápio\n2. Adicionar item\n3. Remover item\n4. Imprimir comanda\n-->"))
     if menu!='1' and menu!='2' and menu!='3' and menu!='4' and menu!='0':
         print("Opção Inválida!")
     if menu =='0':
