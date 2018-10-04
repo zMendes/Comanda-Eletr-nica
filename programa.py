@@ -1,7 +1,6 @@
 import json
 
 running = True
-comandas = {}
 with open('cardapio.json') as json_data:
     cardapio = json.load(json_data)
 with open('comandas.json') as f:
@@ -87,3 +86,4 @@ while running:
                 print("{0}:{1:.2f}R$".format(comandas[comanda][item],unidade))
             print("Valor total:{0:.2f}R$".format(total))
             print("Valor total com serviços (10%):{0:.2f}R$".format(total*1.1))
+2
