@@ -64,6 +64,8 @@ while running:
             pedido=input('Qual item deseja remover do cardápio?')
             if pedido in cardapio:
                 del cardapio[pedido]
+            if pedido in comanda:
+                del comanda[pedido]
             else:
                 print("Item não cadastrado")
     if menu=='4':
