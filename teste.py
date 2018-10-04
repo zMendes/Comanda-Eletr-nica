@@ -4,6 +4,8 @@ running = True
 comandas = {}
 with open('cardapio.json') as json_data:
     cardapio = json.load(json_data)
+with open('comandas.json') as f:
+    comandas=(json.load(f))
 while running:
     menu = input("Comanda Eletrônica\n0. Sair\n1. Imprimir cardápio\n2. Adicionar item\n3. Remover item\n4. Imprimir comanda\n-->")
     if menu!='1' and menu!='2' and menu!='3' and menu!='4' and menu!='0':
@@ -12,6 +14,8 @@ while running:
         print("Até mais")
         with open('cardapio.json','w') as f:
             f.write(json.dumps(cardapio))
+        with open('comandas.json','w') as f:
+            f.write(json.dumps(comandas))
         running = False
     if menu =='1':
         if cardapio == {}:
