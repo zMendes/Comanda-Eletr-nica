@@ -4,6 +4,8 @@ running = True
 comandas = {}
 with open('cardapio.json') as json_data:
     cardapio = json.load(json_data)
+with open('comandas.json') as f:
+    comandas=(json.load(f))
 while running:
     menu = input("Comanda Eletrônica\n0. Sair\n1. Imprimir cardápio\n2. Adicionar item\n3. Remover item\n4. Imprimir comanda\n-->")
     if menu!='1' and menu!='2' and menu!='3' and menu!='4' and menu!='0':
@@ -12,6 +14,8 @@ while running:
         print("Até mais")
         with open('cardapio.json','w') as f:
             f.write(json.dumps(cardapio))
+        with open('comandas.json','w') as f:
+            f.write(json.dumps(comandas))
         running = False
     if menu =='1':
         if cardapio == {}:
@@ -66,14 +70,20 @@ while running:
             pedido=input('Qual item deseja remover do cardápio?')
             if pedido in cardapio:
                 del cardapio[pedido]
+            if pedido in comanda:
+                del comandas[comanda][pedido]
             else:
                 print("Item não cadastrado")
     if menu=='4':
-        total=0
-        for item in comanda:
-            total += cardapio[item] * comandas[comanda][item]
-            unidade= cardapio[item] * comandas[comanda][item]
-            print("{0}:{1:.2f}R$".format(item,cardapio[item]))
-            print("{0:.2f}R$".format(unidade))
-        print("Valor total:{0:.2f}R$".format(total))
-        print("Valor total com serviços (10%):{0:.2f}R$".format(total*1.1))
+        comanda = input("Qual comanda deseja imprimir a conta? ")
+        if comanda not in comandas:
+            print("Comanda Inexistente")
+        else:
+            total=0
+            for item in comandas[comanda]:
+                total += cardapio[item] * comandas[comanda][item]
+                unidade= cardapio[item] * comandas[comanda][item]
+                print("{0}:{1:.2f}R$".format(item,cardapio[item]))
+                print("{0}:{1:.2f}R$".format(comandas[comanda][item],unidade))
+            print("Valor total:{0:.2f}R$".format(total))
+            print("Valor total com serviços (10%):{0:.2f}R$".format(total*1.1))
