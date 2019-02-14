@@ -66,7 +66,7 @@ while running:
                         print("ERRO. Não podem ser removidos mais itens do que haviam antes.")
                         
             else:
-                print("Este item não foi encontrado comanda")
+                print("Este item não está na comanda")
         if escolha=='cardapio' or escolha=='cardápio':
             pedido=input('Qual item deseja remover do cardápio?')
             if pedido in cardapio:
