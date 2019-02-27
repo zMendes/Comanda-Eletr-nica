@@ -20,7 +20,7 @@ while running:
         if cardapio == {}:
             print("Não há nada aqui")
         else:
-            print("O cardápio possui os iten a seguir:")
+            print("O cardápio possui os itens a seguir:")
         for a,b in cardapio.items():
             print("- {0}({1:.2f}R$)".format(a,b))
     
@@ -30,7 +30,7 @@ while running:
             pedido=input("O que deseja adicionar ao cardápio? " )
             preco=float(input("Preço:  "))
             if preco<0:
-                print("O preço não pode ser negativo")
+                print("O preço não pode ser menor que zero.")
             else:
                 cardapio[pedido] = preco
                 print("Item adicionado")
