@@ -8,7 +8,7 @@ with open('comandas.json') as f:
 while running:
     menu = input("Comanda Eletrônica\n0. Sair\n1. Imprimir cardápio\n2. Adicionar item\n3. Remover item\n4. Imprimir comanda\n-->")
     if menu!='1' and menu!='2' and menu!='3' and menu!='4' and menu!='0':
-        print("Opção Inválida!")
+        print("Opção Inválida!!!!!!")
     if menu =='0':
         print("Até mais")
         with open('cardapio.json','w') as f:
@@ -20,7 +20,7 @@ while running:
         if cardapio == {}:
             print("Não há nada aqui")
         else:
-            print("O cardápio possui os seguintes itens:")
+            print("O cardápio possui os iten a seguir:")
         for a,b in cardapio.items():
             print("- {0}({1:.2f}R$)".format(a,b))
     
