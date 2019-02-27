@@ -20,7 +20,7 @@ while running:
         if cardapio == {}:
             print("Não há nada aqui")
         else:
-            print("O cardápio possui os iten a seguir:")
+            print("O cardápio possui os itens a seguir:")
         for a,b in cardapio.items():
             print("- {0}({1:.2f}R$)".format(a,b))
     
